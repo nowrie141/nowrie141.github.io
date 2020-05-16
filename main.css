@@ -34,6 +34,57 @@ img{
 /*End global*/
 
 /*Start reusable*/
+.container{
+    width: 90%;
+    max-width: 120rem;
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+
+.section-heading{
+    text-align: center;
+    margin-top: 10rem;
+}
+
+.section-heading h1{
+    font-size: 3.5rem;
+    color: rgba(255, 255, 255, .5);
+    text-transform: uppercase;
+    font-weight: 400;
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.section-heading h1::before,
+.section-heading h1::after{
+    content: "";
+    position: absolute;
+    bottom: -.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 0.75);
+}
+
+.section-heading h1::before{
+    width: 10rem;
+    height: 3px;
+    border-radius: .8rem;
+}
+
+.section-heading h1::after{
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 100%;
+    bottom: -1.1rem;
+}
+
+.section-heading h6{
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+
+
 /*End reusable*/
 
 /*Start header*/
@@ -60,6 +111,10 @@ header{
     display: flex;
     justify-content: center;
     align-items: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    grid-gap: 2.5rem;
+    text-align: center;
 }
 
 li{
@@ -153,16 +208,110 @@ li{
 }
 .landing-text h6{
     font-size: 3rem; 
+    font-weight: 300;
 }
 /*End header*/
 
 /*Start about*/
+.about .container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-heading{
+    text-align: center;
+    text-transform: uppercase;
+    line-height: 0;
+    margin-bottom: 3rem;
+}
+
+.about-heading h1{
+    font-size: 5rem;
+    opacity: .3;
+}
+
+.about-heading h6{
+    font-size: 2rem;
+    font-weight: 300;
+}
+
+.profile-img{
+    flex:1;
+    margin-right: 5rem;
+}
+
+.about-details{
+    flex:3;
+}
+
+.social-media{
+    margin-top: 5rem;
+}
+
+.social-media i{
+    font-size: 5rem;
+    transition: color 650ms;
+}
+/*Change social media icons*/
+.fa-facebook-square:hover{
+    color: #0779e4;
+}
+.fa-twitter-square:hover{
+    color: #4cbbb9;
+}
+.fa-github-square:hover{
+    color: #00909e;
+}
 /*End about*/
 
 /*Start services*/
+.my-skills{
+    margin-top: 10rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    grid-gap: 2.5rem;
+    text-align: center;
+}
+
+.skill{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.skill h1{
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 2rem -2px 2rem 0;
+}
+
+.icon-container{
+    width: 10rem;
+    height: 10rem;
+    border: 3px solid #fc5185;
+    margin-bottom: 2rem;
+    display: flex;
+    transform: rotate(45deg);
+}
+
+.icon-container i{
+    color: #fc5185;
+    font-size: 4rem;
+    margin: auto;
+    transform: rotate(-45deg);
+}
 /*End services*/
 
 /*Start portfolio*/
+.portfolio-item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5rem;
+}
 /*End services*/
 
 /*Start timeline*/
