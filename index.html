@@ -10,6 +10,25 @@
 	<link rel="stylesheet" href="main.css" />
 </head>
 <body>
+
+	<?php
+	if(isset($_POST['submit'])){
+	  $name = htmlspecialchars(stripslashes(trim($_POST['name'])));
+	  $subject = htmlspecialchars(stripslashes(trim($_POST['subject'])));
+	  $email = htmlspecialchars(stripslashes(trim($_POST['email'])));
+	  $service = htmlspecialchars(stripslashes(trim($_POST['service'])));
+	  if(!preg_match("/^[A-Za-z .'-]+$/", $name)){
+		$name_error = 'Invalid name';
+	  }
+	  if(!preg_match("/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/", $email)){
+		$email_error = 'Invalid email';
+	  }
+	  if(strlen($subject) === 0){
+		$message_error = 'Your message should not be empty';
+	  }
+	}
+  ?>
+
 	<header>
 		<div class="menu"><h1>Menu</h1>
 			<div class="menu-toggler">
@@ -48,10 +67,10 @@
 
 	<section class="about" id="about">
 		<div class="container">
-			<div class="profile-img">
+			<div class="profile-img" data-aos="fade-right" data-aos-delay="300">
 				<img src="img/profile_img.jpg" alt="">
 			</div>
-			<div class="about-details">
+			<div class="about-details" data-aos="fade-left" data-aos-delay="600">
 				<div class="about-heading">
 					<h1>About</h1>
 					<h6>Myself</h6>
@@ -90,8 +109,7 @@
 				<h6>What I can do for you</h6>
 			</div>
 			<div class="my-skills">
-
-				<div class="skill">
+				<div class="skill" data-aos="fade-in" data-aos-delay="300">
 					<div class="icon-container">
 						<i class="fas fa-code"></i>
 					</div>
@@ -99,7 +117,7 @@
 					<p>Fill this</p>
 				</div>
 
-				<div class="skill">
+				<div class="skill" data-aos="fade-in" data-aos-delay="600">
 					<div class="icon-container">
 						<i class="fas fa-desktop"></i>
 					</div>
@@ -107,7 +125,7 @@
 					<p>Fill this</p>
 				</div>
 
-				<div class="skill">
+				<div class="skill" data-aos="fade-in" data-aos-delay="900">
 					<div class="icon-container">
 						<i class="fas fa-gamepad"></i>
 					</div>
@@ -126,10 +144,10 @@
 			</div>
 
 			<div class="portfolio-item">
-				<div class="portfolio-img has-margin-right">
+				<div class="portfolio-img has-margin-right" data-aos="fade-right" data-aos-delay="300">
 					<img src="img/1.jpg" alt="">
 				</div>
-				<div class="portfolio-description">
+				<div class="portfolio-description" data-aos="fade-left" data-aos-delay="600">
 					<h6>Python</h6>
 					<h1>Short description</h1>
 					<p>Longer description</p>
@@ -137,23 +155,23 @@
 				</div>
 			</div>
 
-			<div class="portfolio-item has-margin-right" >
-				<div class="portfolio-description has-margin-right">
+			<div class="portfolio-item" >
+				<div class="portfolio-description has-margin-right" data-aos="fade-left" data-aos-delay="700">
 					<h6>Web</h6>
 					<h1>Short description</h1>
 					<p>Longer description</p>
 					<a href="" class="cta">View details</a>
 				</div>
-				<div class="portfolio-img">
+				<div class="portfolio-img" data-aos="fade-right" data-aos-delay="1000">
 					<img src="img/2.jpg" alt="">
 				</div>
 			</div>
 
 			<div class="portfolio-item">
-				<div class="portfolio-img has-margin-right">
+				<div class="portfolio-img has-margin-right" data-aos="fade-right" data-aos-delay="1100">
 					<img src="img/3.jpg" alt="">
 				</div>
-				<div class="portfolio-description">
+				<div class="portfolio-description" data-aos="fade-left" data-aos-delay="1400">
 					<h6>Games</h6>
 					<h1>Short description</h1>
 					<p>Longer description</p>
@@ -169,7 +187,7 @@
 				<h1>Work Experience</h1>
 				<h6>Past and current</h6>
 			</div>
-			<div class="timeline">
+			<div class="timeline" data-aos="fade-down" data-aos-delay="300">
 				<ul>
 					<!-- Add more when you get more experience and jobs -->
 					<li class="date" data-date="2016">
@@ -188,12 +206,14 @@
 				<h1>Contact</h1>
 				<h6>Work with me</h6>
 			</div>
-			<form action="">
+			<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" data-aos="fade-up" data-aos-delay="300">
 				<label for="name">Name:</label>
 				<input type="text" id="name" name="name" placeholder="Enter your name..." required>
+				<p><?php if(isset($name_error)) echo $name_error; ?></p>
 
 				<label for="email">Email:</label>
 				<input type="text" id="email" name="email" placeholder="Enter your email..." required>
+				<p><?php if(isset($email_error)) echo $email_error; ?></p>
 
 				<label for="service">Service:</label>
 				<select type="text" id="service">
@@ -201,10 +221,24 @@
 					<option value="">Web development</option>
 					<option value="">Game development</option>
 				</select>
+				<p><?php if(isset($service_error)) echo $email_error;?></p>
 
 				<label for="subject">Subject:</label>
 				<textarea name="subject" id="subject" cols="10" rows="10"></textarea>
-				<input type="submit" value="Submit">
+				<p><?php if(isset($subject_error)) echo $subject_error; ?></p>
+
+				<input type="submit" value="Submit" name="submit">
+				<?php 
+				if(isset($_POST['submit']) && !isset($name_error) && !isset($subject_error) && !isset($email_error)){
+				  $to = 'iagferro95@gmail.com'; // edit here
+				  $body = " Name: $name\n E-mail: $email\n Service: $service\n Subject: $subject\n;
+				  if(mail($to, 'Web Contact', $body)){
+					echo '<p style="color: #fc5185">Message sent</p>';
+				  }else{
+					echo '<p>Error occurred, please try again later</p>';
+				  }
+				}
+			  ?>
 			</form>
 		</div>
 	</section>

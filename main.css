@@ -520,7 +520,7 @@ input[type="submit"]:hover{
 
 @media screen and (max-width: 950px){
     .landing-text h1{
-        font-size: 6rem;
+        font-size: 5rem;
     }
     .landing-text h6{
         font-size: 1.5rem;
@@ -574,11 +574,12 @@ input[type="submit"]:hover{
 
 @media screen and (max-width: 600px){
     .menu-toggler{
-        top: 2.7rem;
+        top: 2.5rem;
+        right: 1rem;
     }
 
     .landing-text h1{
-        font-size: 5rem;
+        font-size: 4rem;
     }
     .landing-text h6{
         font-size: 1rem;
@@ -629,15 +630,6 @@ input[type="submit"]:hover{
 
     .about-details li{
         margin: 0 2rem;
-    }
-
-    .icon-container{
-        width: 7rem;
-        height: 7rem;
-    }
-
-    .icon-container i{
-        font-size: 3rem;
     }
 
     .timeline p{
