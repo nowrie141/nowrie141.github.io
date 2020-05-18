@@ -11,24 +11,6 @@
 </head>
 <body>
 
-	<?php
-	if(isset($_POST['submit'])){
-	  $name = htmlspecialchars(stripslashes(trim($_POST['name'])));
-	  $subject = htmlspecialchars(stripslashes(trim($_POST['subject'])));
-	  $email = htmlspecialchars(stripslashes(trim($_POST['email'])));
-	  $service = htmlspecialchars(stripslashes(trim($_POST['service'])));
-	  if(!preg_match("/^[A-Za-z .'-]+$/", $name)){
-		$name_error = 'Invalid name';
-	  }
-	  if(!preg_match("/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/", $email)){
-		$email_error = 'Invalid email';
-	  }
-	  if(strlen($subject) === 0){
-		$message_error = 'Your message should not be empty';
-	  }
-	}
-  ?>
-
 	<header>
 		<div class="menu"><h1>Menu</h1>
 			<div class="menu-toggler">
@@ -206,39 +188,21 @@
 				<h1>Contact</h1>
 				<h6>Work with me</h6>
 			</div>
-			<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" data-aos="fade-up" data-aos-delay="300">
+			<form id="ajax-contact" method="POST" data-aos="fade-up" data-aos-delay="300">
 				<label for="name">Name:</label>
-				<input type="text" id="name" name="name" placeholder="Enter your name..." required>
-				<p><?php if(isset($name_error)) echo $name_error; ?></p>
+				<input type="text" id="name" name="name" class="form-control" placeholder="Enter your name..." required>
 
 				<label for="email">Email:</label>
-				<input type="text" id="email" name="email" placeholder="Enter your email..." required>
-				<p><?php if(isset($email_error)) echo $email_error; ?></p>
-
-				<label for="service">Service:</label>
-				<select type="text" id="service">
-					<option value="">Python development</option>
-					<option value="">Web development</option>
-					<option value="">Game development</option>
-				</select>
-				<p><?php if(isset($service_error)) echo $email_error;?></p>
+				<input type="text" id="email" name="email" class="form-control" placeholder="Enter your email..." required>
 
 				<label for="subject">Subject:</label>
-				<textarea name="subject" id="subject" cols="10" rows="10"></textarea>
-				<p><?php if(isset($subject_error)) echo $subject_error; ?></p>
+				<input type="text" id="subject" name="subject" class="form-control" placeholder="Enter the subject..." required>
 
-				<input type="submit" value="Submit" name="submit">
-				<?php 
-				if(isset($_POST['submit']) && !isset($name_error) && !isset($subject_error) && !isset($email_error)){
-				  $to = 'iagferro95@gmail.com'; // edit here
-				  $body = " Name: $name\n E-mail: $email\n Service: $service\n Subject: $subject\n;
-				  if(mail($to, 'Web Contact', $body)){
-					echo '<p style="color: #fc5185">Message sent</p>';
-				  }else{
-					echo '<p>Error occurred, please try again later</p>';
-				  }
-				}
-			  ?>
+				<label for="message">Message:</label>
+				<textarea name="message" id="message" class="form-control" cols="10" rows="10" placeholder="Enter your message..."></textarea>
+
+				<input type="submit" value="Submit" name="submit" id="submit">
+				<div id="form-messages"></div>
 			</form>
 		</div>
 	</section>

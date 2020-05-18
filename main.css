@@ -440,6 +440,10 @@ form{
     margin: 0 auto;
 }
 
+textarea {
+    resize: none;
+}
+
 form label{
     font-size: 1.5rem;
 }
@@ -573,10 +577,6 @@ input[type="submit"]:hover{
 }
 
 @media screen and (max-width: 600px){
-    .menu-toggler{
-        top: 2.5rem;
-        right: 1rem;
-    }
 
     .landing-text h1{
         font-size: 4rem;
