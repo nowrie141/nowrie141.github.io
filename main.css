@@ -127,7 +127,7 @@ li{
 .nav-link{
     font-family: 'Permanent Marker', sans-serif;
     font-size: 5rem;
-    /*padding: 1rem;*/
+    padding: 1rem;
 }
 
 .nav-link:hover,
@@ -415,7 +415,7 @@ li{
 
 .timeline .date::before{
     content: attr(data-date);
-    left: -21rem;
+    left: -22rem;
     text-align: right;
     min-width: 12rem;
     font-size: 1.5rem;
@@ -430,8 +430,6 @@ li{
     height: 1.5rem;
     width: 1.5rem;
 }
-
-
 /*End timeline*/
 
 /*Start contact*/
@@ -534,9 +532,7 @@ input[type="submit"]:hover{
         flex-direction: column;
     }
 
-    li{
-        margin: 2rem 0;
-    }
+
 
     .nav-link{
         font-size: 4.5rem;
@@ -568,16 +564,19 @@ input[type="submit"]:hover{
     }
 
     .timeline .date::before{
-        left: -19rem;
+        left: -22rem;
     }
 
     .timeline .date::after{
-        left: -5.9rem;
+        left: -7.9rem;
     }
 }
 
 @media screen and (max-width: 600px){
-
+    .menu{
+        top: .7rem;
+        right: 3rem;
+    }
     .landing-text h1{
         font-size: 4rem;
     }
@@ -589,9 +588,7 @@ input[type="submit"]:hover{
         flex-direction: column;
     }
 
-    li{
-        margin: 2rem 0;
-    }
+
 
     .nav-link{
         font-size: 3.5rem;
