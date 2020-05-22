@@ -127,7 +127,7 @@ li{
 .nav-link{
     font-family: 'Permanent Marker', sans-serif;
     font-size: 5rem;
-    padding: 1rem;
+    /*padding: 1rem;*/
 }
 
 .nav-link:hover,

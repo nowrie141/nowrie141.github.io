@@ -34,20 +34,4 @@ $(document).ready(function (){
         duration: 1800
     });
 
-    $('#ajax-contact').submit(function(e) {
-        e.preventDefault();
-        $.ajax({
-            type: "POST",
-            url: "main.php",
-            data: $(this).serialize(),
-            success: function (response)
-            {
-                alert('Great');
-                $("#form-messages").text(response.responseText);
-            },
-            error: function (response){
-                $("#form-messages").text(response.responseText);
-            }
-        });
-    });
 });
