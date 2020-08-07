@@ -155,6 +155,7 @@ li {
     cursor: pointer;
     z-index: 1500;
     transition: transform 650ms ease-out;
+    overflow: hidden;
 }
 
 .menu-toggler {
@@ -247,7 +248,17 @@ li {
     font-weight: 300;
 }
 
+
+
+
+
 /*End header*/
+.fixed-menu .up {
+    position: fixed;
+    top: 90vh;
+    right: 2rem;
+    opacity: 0.8;
+}
 
 /*Start about*/
 .about .container {
@@ -528,6 +539,9 @@ input[type="submit"]:hover {
     border-radius: 100%;
     display: flex;
     animation: pulse 3s infinite;
+    transition: position 0.001s;
+    transition: opacity 1s;
+    opacity: 0;
 }
 
 .up i {
