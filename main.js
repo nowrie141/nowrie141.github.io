@@ -1,37 +1,45 @@
-$(document).ready(function (){
+menu = document.querySelector('.menu')
+menu_toggler = document.querySelector('.menu-toggler')
+top_nav = document.querySelector('.top-nav')
+nav_links = Array.from(document.querySelectorAll('.nav-link'))
+id_sections = Array.from(document.querySelectorAll('nav a[href*="#"]'))
+up = document.querySelector('#up')
 
-    $('.menu-toggler').on('click', function () {
+function removeOpen () {
+  if (
+    top_nav.classList.contains('open') &&
+    menu_toggler.classList.contains('open')
+  ) {
+    menu_toggler.classList.remove('open')
+    top_nav.classList.remove('open')
+  }
+}
 
-        $(this).toggleClass('open');
-        $('.top-nav').toggleClass('open');
-        
-    });
+menu.addEventListener('click', () => {
+  menu_toggler.classList.toggle('open')
+  top_nav.classList.toggle('open')
+})
 
-    $('.top-nav .nav-link').on('click', function () {
+top_nav.addEventListener('click', removeOpen)
 
-        $('.menu-toggler').removeClass('open');
-        $('.top-nav').removeClass('open');
-        
-    });
+nav_links.forEach(nav_link => nav_link.addEventListener('click', removeOpen))
 
-    $('nav a[href*="#"]').on('click', function () {
+id_sections.forEach(id_section =>
+  id_section.addEventListener('click', () => {
+    section = document.querySelector(`${id_section.hash}`)
+    section.scrollIntoView()
+  })
+)
 
-        $('html, body').animate( {
-            scrollTop: $($(this).attr('href')).offset().top
-        }, 1500);
-        
-    });
+up.addEventListener('click', () => {
+  window.scrollTo({
+    top: 0,
+    left: 0,
+    behavior: 'smooth'
+  })
+})
 
-    $('#up').on('click', function () {
-
-        $('html, body').animate( {
-            scrollTop: 0 }, 1000);
-        
-    });
-
-    AOS.init({
-        easing: 'ease',
-        duration: 1800
-    });
-
-});
+AOS.init({
+  easing: 'ease',
+  duration: 1800
+})
