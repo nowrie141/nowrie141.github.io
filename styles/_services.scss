@@ -1,0 +1,39 @@
+.my-skills {
+  margin-top: 10rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  grid-gap: 2.5rem;
+  text-align: center;
+}
+
+.skill {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  h1 {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 2rem -2px 2rem 0;
+  }
+}
+
+.icon-container {
+  width: 10rem;
+  height: 10rem;
+  border: 3px solid #fc5185;
+  margin-bottom: 2rem;
+  display: flex;
+  transform: rotate(45deg);
+  transition: 2s;
+  &:hover {
+    transform: rotate(405deg);
+  }
+  i {
+    color: #fc5185;
+    font-size: 4rem;
+    margin: auto;
+    transform: rotate(-45deg);
+  }
+}

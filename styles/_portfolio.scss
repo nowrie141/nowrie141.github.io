@@ -1,0 +1,41 @@
+.portfolio-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.portfolio-img {
+  flex: 1;
+}
+
+.portfolio-description {
+  flex: 1;
+  h1 {
+    font-size: 3rem;
+    font-weight: 300;
+    margin: 1rem 0;
+  }
+
+  h6 {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    font-weight: 300;
+    opacity: 0.6;
+  }
+
+  .cta {
+    display: inline-block;
+    margin-top: 2.5rem;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    color: #3fc1c9;
+    transform: color 650ms;
+    &:hover {
+      color: #fc5185;
+    }
+  }
+}
