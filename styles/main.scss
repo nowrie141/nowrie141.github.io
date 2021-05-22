@@ -62,7 +62,7 @@ img {
   margin-bottom: 5rem;
   h1 {
     font-size: 3.5rem;
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.7);
     text-transform: uppercase;
     font-weight: 400;
     position: relative;
@@ -78,7 +78,7 @@ img {
     }
 
     &::before {
-      width: 50rem;
+      width: 20rem;
       height: 1px;
       border-radius: 0.8rem;
     }
@@ -169,18 +169,6 @@ img {
   .icon-container i {
     font-size: 3rem;
   }
-
-  .timeline ul {
-    margin: 0 0 0 auto;
-  }
-
-  .timeline .date::before {
-    left: -22rem;
-  }
-
-  .timeline .date::after {
-    left: -7.9rem;
-  }
 }
 
 @media only screen and (max-width: 600px) {
@@ -234,26 +222,6 @@ img {
   .about-details li {
     margin: 0 2rem;
   }
-
-  .timeline p {
-    font-size: 1.6rem;
-  }
-
-  .timeline .date::before {
-    left: -16rem;
-  }
-
-  .timeline .date::after {
-    left: -2.9rem;
-  }
-
-  .timeline ul {
-    float: right;
-    padding: 0rem;
-    width: 80%;
-    margin-bottom: 10rem;
-  }
-
   form {
     width: 100%;
   }
@@ -261,6 +229,8 @@ img {
   .up {
     top: -5rem;
     right: 2rem;
+    width: 4rem;
+    height: 4rem;
   }
 }
 
@@ -273,24 +243,16 @@ img {
     font-size: 1rem;
   }
 
-  .timeline .date::before {
-    left: -16rem;
-  }
-
-  .timeline .date::after {
-    left: -2.9rem;
-  }
-
-  .timeline ul {
-    float: right;
-    padding: 0rem;
-    width: 80%;
-    margin-bottom: 10rem;
-  }
-
   .up {
     top: -5rem;
     right: 2rem;
+    width: 4rem;
+    height: 4rem;
+    i {
+      color: #364f6b;
+      font-size: 1.5rem;
+      margin: auto;
+    }
   }
 }
 

@@ -1,5 +1,4 @@
 .my-skills {
-  margin-top: 10rem;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
   grid-gap: 2.5rem;
@@ -9,7 +8,6 @@
 .skill {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   padding: 2rem;
   h1 {

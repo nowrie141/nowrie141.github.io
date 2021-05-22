@@ -20,6 +20,13 @@ textarea {
   border: none;
   outline-color: #fc5185;
   font-family: "Montserrat", sans-serif;
+  font-weight: bolder;
+}
+
+input::placeholder,
+textarea::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  font-weight: bolder;
 }
 
 input[type="submit"] {

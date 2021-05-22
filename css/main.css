@@ -6,7 +6,7 @@ header {
 
 .top-nav {
   width: 100%;
-  height: 100vh;
+  height: 100vmin;
   position: fixed;
   top: -100vh;
   background-color: #16162d;
@@ -20,7 +20,7 @@ header {
 .nav-list {
   list-style: none;
   width: 100%;
-  height: 100%;
+  height: 100vmin;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -69,7 +69,6 @@ li {
   transition: -webkit-transform 650ms ease-out;
   transition: transform 650ms ease-out;
   transition: transform 650ms ease-out, -webkit-transform 650ms ease-out;
-  overflow: hidden;
 }
 
 .menu-toggler {
@@ -91,6 +90,11 @@ li {
   margin-top: 0px;
 }
 
+.menu-toggler > * {
+  -webkit-transition: margin-top 0.5s ease-in;
+  transition: margin-top 0.5s ease-in;
+}
+
 .menu-toggler > div:not(:first-child) {
   margin-top: 10px;
 }
@@ -100,12 +104,16 @@ li {
           transform: rotate(-45deg);
 }
 
+.menu-toggler.open > div:not(:first-child) {
+  margin-top: 0px;
+}
+
 .bar {
   background: -webkit-gradient(linear, left top, right top, from(#fc5185), color-stop(#f5f5f5), color-stop(#3fc1c9), to(#364f6b));
   background: linear-gradient(to right, #fc5185, #f5f5f5, #3fc1c9, #364f6b);
   width: 40px;
   height: 7px;
-  border-radius: 0.8rem;
+  border-radius: 2px;
 }
 
 .bar.half {
@@ -119,6 +127,8 @@ li {
   transition: -webkit-transform 650ms cubic-bezier(0.54, -0.81, 0.57, 0.57);
   transition: transform 650ms cubic-bezier(0.54, -0.81, 0.57, 0.57);
   transition: transform 650ms cubic-bezier(0.54, -0.81, 0.57, 0.57), -webkit-transform 650ms cubic-bezier(0.54, -0.81, 0.57, 0.57);
+  background: -webkit-gradient(linear, left top, right top, from(#fc5185), to(#f5f5f5));
+  background: linear-gradient(to right, #fc5185, #f5f5f5);
 }
 
 .bar.end {
@@ -130,6 +140,8 @@ li {
   transition: -webkit-transform 650ms cubic-bezier(0.54, -0.81, 0.57, 0.57);
   transition: transform 650ms cubic-bezier(0.54, -0.81, 0.57, 0.57);
   transition: transform 650ms cubic-bezier(0.54, -0.81, 0.57, 0.57), -webkit-transform 650ms cubic-bezier(0.54, -0.81, 0.57, 0.57);
+  background: -webkit-gradient(linear, left top, right top, from(#f5f5f5), color-stop(#3fc1c9), to(#364f6b));
+  background: linear-gradient(to right, #f5f5f5, #3fc1c9, #364f6b);
 }
 
 .open .bar.start {
@@ -154,6 +166,7 @@ li {
 
 .landing-text h1 {
   font-size: 10rem;
+  line-height: 10rem;
   background: linear-gradient(125deg, #fc5185, #ff9cba, #eee, #3fc1c9, #364f6b);
   font-family: "Permanent Marker", sans-serif;
   -webkit-background-clip: text;
@@ -164,8 +177,8 @@ li {
       -ms-user-select: none;
           user-select: none;
   background-size: 400% 400%;
-  -webkit-animation: gradient 5s ease infinite;
-          animation: gradient 5s ease infinite;
+  -webkit-animation: gradient 5s infinite;
+          animation: gradient 5s infinite;
 }
 
 @-webkit-keyframes gradient {
@@ -284,7 +297,6 @@ li {
 }
 
 .my-skills {
-  margin-top: 10rem;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (minmax(25rem, 1fr))[auto-fit];
@@ -301,9 +313,6 @@ li {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -402,10 +411,10 @@ li {
 .timeline ul {
   border-left: 4px solid #ffe838;
   border-radius: 0.8rem;
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: rgba(0, 0, 0, 0.2);
   margin: 0 auto;
   position: relative;
-  padding: 5rem;
+  padding: 3rem;
   list-style: none;
   text-align: left;
   width: 70%;
@@ -416,13 +425,17 @@ li {
   text-transform: uppercase;
   font-weight: 300;
   margin-bottom: 1rem;
-  opacity: 0.3;
+  opacity: 0.8;
+}
+
+.timeline h3 {
+  margin-bottom: 1rem;
 }
 
 .timeline .date {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   margin-bottom: 1rem;
-  padding-bottom: 1rem;
+  padding-bottom: 2rem;
   position: relative;
 }
 
@@ -436,9 +449,9 @@ li {
 
 .timeline .date::before {
   content: attr(data-date);
-  left: -22rem;
-  text-align: right;
-  min-width: 12rem;
+  left: -13rem;
+  text-align: center;
+  max-width: 60px;
   font-size: 1.5rem;
 }
 
@@ -448,7 +461,7 @@ li {
           box-shadow: 0 0 0 4px #fc51848a;
   background-color: #ffe838;
   border-radius: 100%;
-  left: -7.9rem;
+  left: -5.9rem;
   height: 1.5rem;
   width: 1.5rem;
 }
@@ -457,6 +470,52 @@ li {
   padding-bottom: 0;
   margin-bottom: 0;
   border: none;
+}
+
+@media screen and (max-width: 950px) {
+  .timeline ul {
+    margin: 0 auto;
+    width: 85%;
+  }
+  .timeline .date::before {
+    left: -12rem;
+  }
+  .timeline .date::after {
+    left: -5.9rem;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .timeline p {
+    font-size: 1.6rem;
+  }
+  .timeline .date::before {
+    left: -8rem;
+  }
+  .timeline .date::after {
+    left: -2.9rem;
+  }
+  .timeline ul {
+    float: right;
+    padding: 2rem 0;
+    width: 85%;
+    margin-bottom: 10rem;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .timeline .date::before {
+    left: -8rem;
+  }
+  .timeline .date::after {
+    left: -2.9rem;
+  }
+  .timeline ul {
+    float: right;
+    padding: 2rem 0;
+    width: 80%;
+    margin-bottom: 10rem;
+  }
 }
 
 form {
@@ -481,6 +540,31 @@ textarea {
   border: none;
   outline-color: #fc5185;
   font-family: "Montserrat", sans-serif;
+  font-weight: bolder;
+}
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  font-weight: bolder;
+}
+
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  font-weight: bolder;
+}
+
+input::-ms-input-placeholder,
+textarea::-ms-input-placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  font-weight: bolder;
+}
+
+input::placeholder,
+textarea::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  font-weight: bolder;
 }
 
 input[type="submit"] {
@@ -593,7 +677,7 @@ img {
 
 .section-heading h1 {
   font-size: 3.5rem;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.7);
   text-transform: uppercase;
   font-weight: 400;
   position: relative;
@@ -611,7 +695,7 @@ img {
 }
 
 .section-heading h1::before {
-  width: 50rem;
+  width: 20rem;
   height: 1px;
   border-radius: 0.8rem;
 }
@@ -712,15 +796,6 @@ img {
   .icon-container i {
     font-size: 3rem;
   }
-  .timeline ul {
-    margin: 0 0 0 auto;
-  }
-  .timeline .date::before {
-    left: -22rem;
-  }
-  .timeline .date::after {
-    left: -7.9rem;
-  }
 }
 
 @media only screen and (max-width: 600px) {
@@ -776,27 +851,14 @@ img {
   .about-details li {
     margin: 0 2rem;
   }
-  .timeline p {
-    font-size: 1.6rem;
-  }
-  .timeline .date::before {
-    left: -16rem;
-  }
-  .timeline .date::after {
-    left: -2.9rem;
-  }
-  .timeline ul {
-    float: right;
-    padding: 0rem;
-    width: 80%;
-    margin-bottom: 10rem;
-  }
   form {
     width: 100%;
   }
   .up {
     top: -5rem;
     right: 2rem;
+    width: 4rem;
+    height: 4rem;
   }
 }
 
@@ -807,21 +869,16 @@ img {
   .landing-text h6 {
     font-size: 1rem;
   }
-  .timeline .date::before {
-    left: -16rem;
-  }
-  .timeline .date::after {
-    left: -2.9rem;
-  }
-  .timeline ul {
-    float: right;
-    padding: 0rem;
-    width: 80%;
-    margin-bottom: 10rem;
-  }
   .up {
     top: -5rem;
     right: 2rem;
+    width: 4rem;
+    height: 4rem;
+  }
+  .up i {
+    color: #364f6b;
+    font-size: 1.5rem;
+    margin: auto;
   }
 }
 

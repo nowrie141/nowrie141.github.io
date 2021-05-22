@@ -19,12 +19,11 @@
   transition: position 0.001s;
   transition: opacity 1s;
   opacity: 0;
-}
-
-.up i {
-  color: #364f6b;
-  font-size: 2rem;
-  margin: auto;
+  i {
+    color: #364f6b;
+    font-size: 2rem;
+    margin: auto;
+  }
 }
 
 .copyright p {
